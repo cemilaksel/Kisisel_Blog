@@ -7,11 +7,11 @@ interface ExpertiseProps {
 
 const Expertise: React.FC<ExpertiseProps> = ({ items }) => {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-3">
       {items.map((item, index) => (
         <span 
           key={index} 
-          className="px-4 py-2 bg-zinc-100 text-zinc-700 rounded-full text-sm font-medium border border-zinc-200 hover:bg-zinc-200 transition-colors cursor-default"
+          className="px-5 py-2.5 bg-white text-blue-900/80 rounded-2xl text-sm font-semibold border border-blue-50 shadow-sm hover:shadow-md hover:border-blue-200 hover:-translate-y-0.5 transition-all cursor-default select-none"
         >
           {item}
         </span>

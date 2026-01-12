@@ -8,24 +8,32 @@ interface ExperienceProps {
 
 const Experience: React.FC<ExperienceProps> = ({ items }) => {
   return (
-    <div className="space-y-12 relative before:absolute before:inset-y-0 before:left-0 md:before:left-1/4 before:w-px before:bg-zinc-200">
+    <div className="space-y-10 relative before:absolute before:inset-y-0 before:left-0 before:w-[2px] before:bg-gradient-to-b before:from-blue-400/50 before:via-blue-200/30 before:to-transparent">
       {items.map((item, index) => (
-        <div key={index} className="relative pl-8 md:grid md:grid-cols-4 md:gap-8 md:pl-0">
-          {/* Dot marker */}
-          <div className="absolute left-[-5px] md:left-[24.3%] top-1.5 w-[11px] h-[11px] rounded-full bg-zinc-300 border-2 border-zinc-50 z-10" />
+        <div key={index} className="relative pl-8 group">
+          {/* Dot marker with ping effect */}
+          <div className="absolute left-[-5px] top-1.5 w-[12px] h-[12px] rounded-full bg-blue-500 border-2 border-white z-10 transition-transform group-hover:scale-125 shadow-sm" />
           
-          <div className="md:col-span-1 text-sm font-semibold text-zinc-400 mb-2 md:mb-0">
-            {item.period}
-          </div>
-          
-          <div className="md:col-span-3 space-y-2">
-            <h3 className="text-xl font-bold text-zinc-900 leading-none">{item.role}</h3>
-            <p className="text-zinc-500 font-medium">{item.company}</p>
-            {item.description && (
-              <p className="text-zinc-600 leading-relaxed text-sm">
-                {item.description}
-              </p>
-            )}
+          <div className="space-y-2">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-blue-500/60 order-2 sm:order-1">
+                {item.period}
+              </span>
+              <span className="text-xs font-bold text-blue-800/40 order-1 sm:order-2">
+                {item.company}
+              </span>
+            </div>
+            
+            <div className="space-y-1">
+              <h3 className="text-lg font-bold text-zinc-800 leading-tight group-hover:text-blue-900 transition-colors">
+                {item.role}
+              </h3>
+              {item.description && (
+                <p className="text-zinc-500 leading-relaxed text-sm font-medium">
+                  {item.description}
+                </p>
+              )}
+            </div>
           </div>
         </div>
       ))}
